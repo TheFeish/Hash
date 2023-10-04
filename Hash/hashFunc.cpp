@@ -1,16 +1,16 @@
-#include <iostream>
 #include <sstream>
 #include <random>
+#include "hashFunc.h"
 
 using namespace std;
 
-unsigned int hash1(int p, int m, string s) {
+unsigned int hashDec(int p, int m, string s) {
 	unsigned int hash = 0;
 	int pow = p;
 	for (auto c : s) {
-		hash += (c * pow) % m;
+		hash = (hash + c * pow) % m;
 		pow = (pow * p) % m;
-		
+
 	}
 	return hash;
 }
@@ -31,10 +31,6 @@ string hashHex(unsigned int h1, unsigned int h2) {
 	return hash.str();
 }
 
-int main() {
-	string s1 = "1234567890";
-	string s2 = "1234567899";
-
-	cout << hashHex(hash1(257, 1e9 + 7, s1), hash1(263, 1e9 + 9, s1)) << endl;
-	cout << hashHex(hash1(257, 1e9 + 7, s2), hash1(263, 1e9 + 9, s2)) << endl;
+string myHash(string s) {
+	return hashHex(hashDec(257, (int)(1e9 + 7), s), hashDec(263, (int)(1e9 + 9), s));
 }
