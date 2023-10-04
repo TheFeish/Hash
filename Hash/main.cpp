@@ -20,6 +20,7 @@ int main(int argc, char* argv[]) {
 			else {
 				cout << "File not found";
 			}
+			input.close();
 		}
 		else {
 			cout << myHash(argv[2]);
