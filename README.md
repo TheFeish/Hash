@@ -49,6 +49,8 @@ For instance hashing an empty file will always return
 ### Hashing performance
 Hashing times rise somewhat linearly.
 Tested by hashing different number of lines from constitution of Lithuania:
+![lineHashing](https://github.com/TheFeish/Hash/assets/113859423/1fd676e4-48a3-4e93-b791-c7ea084d81be)
+
 
 ### Collision resistance
 0 collisions found by testing 100000 pairs of random text strings - 25000 of 10, 100, 500 and 1000 characters long.
